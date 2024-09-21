@@ -1,0 +1,118 @@
+@import "sizes";
+@import "spacing";
+@import "colors";
+@import "borders";
+@import "flex";
+@import "typography";
+@import "css/bootstrap.css";
+
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../public/fonts/OpenSans-VariableFont_wdth,wght.ttf");
+  font-style: normal;
+  font-weight: auto;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../public/fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf");
+  font-style: italic;
+  font-weight: auto;
+  font-display: swap;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button {
+  font: unset;
+  text-align: unset;
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+}
+
+button {
+  font-family: "Open Sans", sans-serif;
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-weight: bold;
+  color: $white;
+
+  background-color: $purple;
+
+  &:hover {
+    background-color: $dark-purple;
+  }
+
+  &:disabled {
+    opacity: 0.25;
+    &:hover {
+      background-color: $purple;
+    }
+  }
+}
+
+button.secondary {
+  background-color: #fff;
+  border: 1px solid $purple;
+  color: $purple;
+
+  &:hover {
+    border-color: $dark-purple;
+    color: $dark-purple;
+  }
+}
+
+strong {
+  font-weight: 800;
+}
+
+body {
+  line-height: 1.5rem;
+  margin: 0;
+  font-size: 100%;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.height-100 {
+  height: 100%;
+}
+
+.height-full {
+  min-height: 100vh;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
