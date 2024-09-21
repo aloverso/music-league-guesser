@@ -1,5 +1,5 @@
 export type Song = {
-  title: string,
-  artist: string,
-  comment: string
-}
+  title: string;
+  artist: string;
+  comment: string;
+};

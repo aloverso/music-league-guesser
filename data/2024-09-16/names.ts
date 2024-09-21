@@ -18,4 +18,4 @@ export default [
   "Naman Agrawal",
   // "Tristan Vanech",
   // "John Chan",
-]
+];
