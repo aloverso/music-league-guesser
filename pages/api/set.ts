@@ -8,8 +8,6 @@ type ResponseData = {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
-  console.log(req.body);
-
   const store = getStore(`store-${CURRENT_WEEK}`);
   const submissionsBlob = await store.get("submissions", { type: "json" });
 

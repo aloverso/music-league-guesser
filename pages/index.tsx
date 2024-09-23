@@ -54,13 +54,16 @@ const Index = (props: Props): ReactElement => {
             <div className="col-12">
               <h1 className="text-xxl bold">It&apos;s the music league guesser!</h1>
               <p className="mtd">Guess who submitted each song for week of {CURRENT_WEEK}</p>
+              <p>Only submit once per week, please!</p>
             </div>
           </div>
 
           <div className="row mbxl">
             <div className="col-12">
               <div>
-                <label htmlFor="#your-name">Your Name (please don&apos;t lie):</label>
+                <label htmlFor="#your-name">
+                  <b>Your Name:</b>
+                </label>
                 <input
                   id="your-name"
                   type="text"
@@ -80,16 +83,13 @@ const Index = (props: Props): ReactElement => {
               <h2 className="text-xl bold mbs">Songs</h2>
 
               {props.songs.map((song) => (
-                <div className="mbl" key={song.title}>
+                <div className="mbl ptd" key={song.title}>
                   <h3 className="text-m bold">{song.title}</h3>
                   <p>{song.artist}</p>
                   <p className="mld">
                     <i>{song.comment}</i>
                   </p>
-                  <select
-                    className="pas width-50"
-                    onChange={(event) => selectName(event, song.title)}
-                  >
+                  <select className="pas width-50" onChange={(event) => selectName(event, song.title)}>
                     {guesses[song.title] ? (
                       <option value={guesses[song.title]} selected>
                         {guesses[song.title]}
@@ -115,10 +115,10 @@ const Index = (props: Props): ReactElement => {
             <div className="col-4 offset-1">
               <h2 className="text-xl bold mbd">Remaining Names ({remainingNames.length})</h2>
               {props.names.map((it) => {
-                if (remainingNames.includes(it)) return <p>{it}</p>;
+                if (remainingNames.includes(it)) return <p key={it}>{it}</p>;
                 else
                   return (
-                    <p>
+                    <p key={it}>
                       <s>{it}</s>
                     </p>
                   );
