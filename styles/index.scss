@@ -115,3 +115,8 @@ body {
 .pointer {
   cursor: pointer;
 }
+
+td, th {
+  border: solid 1px #eee;
+  text-align: center;
+}

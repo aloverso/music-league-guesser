@@ -3,3 +3,9 @@ export type Song = {
   artist: string;
   comment: string;
 };
+
+export type Guess = {
+  submitterName: string;
+  timestamp: string;
+  guesses: Record<string, string>
+}
