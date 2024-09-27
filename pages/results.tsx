@@ -142,7 +142,7 @@ const Results = (props: Props): ReactElement => {
 
 export const getServerSideProps = async (): Promise<GetServerSidePropsResult<Props>> => {
   const answers = (await import(`../data/${CURRENT_WEEK}/answers.ts`)).default;
-  const guesses = await (await fetch("/api/getstore")).json()
+  const guesses = await (await fetch("https://music-league-guesser.netlify.app/api/getstore")).json()
 
   return { props: { answers, guesses } };
 };
