@@ -142,9 +142,10 @@ const Results = (props: Props): ReactElement => {
 
 export const getServerSideProps = async (): Promise<GetServerSidePropsResult<Props>> => {
   const answers = (await import(`../data/${CURRENT_WEEK}/answers.ts`)).default;
-  const guesses = await (await fetch("https://music-league-guesser.netlify.app/api/getstore")).json()
+  const guesses = (await (await fetch("https://music-league-guesser.netlify.app/api/getstore")).json())
+    .filter((it: Guess) => it.timestamp !== "2024-09-27T02:58:24+00:00")
 
-  return { props: { answers, guesses } };
+  return { props: { answers, guesses } }; 
 };
 
 export default Results;
