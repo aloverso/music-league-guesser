@@ -8,6 +8,11 @@ interface Props {
   guesses: Guess[];
 }
 
+type PeopleCorrect = {
+  song: string;
+  correct: boolean;
+}
+
 const Results = (props: Props): ReactElement => {
 
   const rows = []
@@ -17,13 +22,19 @@ const Results = (props: Props): ReactElement => {
 
     let numberCorrect = 0
 
-    const peopleCorrect: Record<string, boolean> = {}
+    const peopleCorrect: Record<string, PeopleCorrect> = {}
     for (const title of Object.keys(guesser.guesses)) {
       if (guesser.guesses[title] === props.answers[title]) {
         numberCorrect += 1;
-        peopleCorrect[guesser.guesses[title]] = true
+        peopleCorrect[guesser.guesses[title]] = {
+          song: title,
+          correct: true
+        }
       } else {
-        peopleCorrect[guesser.guesses[title]] = false
+        peopleCorrect[guesser.guesses[title]] = {
+          song: title,
+          correct: false
+        }
       }
     }
 
@@ -39,7 +50,7 @@ const Results = (props: Props): ReactElement => {
 
   const sumPerPerson = rows.reduce((acc: number[], curRow: any[]) => {
     curRow.slice(2).forEach((personCorrect, i) => {
-      if(personCorrect) {
+      if(personCorrect.correct) {
         acc[i] += 1
       }
     })
@@ -110,7 +121,10 @@ const Results = (props: Props): ReactElement => {
                   <td><b>{row[0]}</b></td>
                   <td>{row[1]}%</td>
                   {row.slice(2).map((column, i) => (
-                    <td key={`${row[0]}${i}`}>{column ? "✅" : "❌"}</td>
+                    <td key={`${row[0]}${i}`} className="text-s">
+                      {(column as PeopleCorrect).correct ? "✅" : "❌"}{" "}
+                      <span className="text-xs">{(column as PeopleCorrect).song}</span>
+                    </td>
                   ))}
                 </tr>
               ))}
