@@ -16,6 +16,6 @@ export default [
   "case451",
   "melanie.mazanec",
   "Naman Agrawal",
-  "Tristan Vanech",
+  // "Tristan Vanech",
   // "John Chan",
 ];
