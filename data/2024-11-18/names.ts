@@ -9,7 +9,7 @@ export default [
   "aelv13",
   "Hames",
   "anjupoe",
-  // "Amani Farooque",
+  "Amani Farooque",
   "lizzy",
   "sanni",
   "Noah Marcus",
