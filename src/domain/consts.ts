@@ -1,1 +1,1 @@
-export const CURRENT_WEEK = "2024-11-18";
+export const CURRENT_WEEK = "2025-01-20";
